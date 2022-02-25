@@ -19,11 +19,11 @@ const routes: Routes = [
     {path: "dashboard", component: DashboardComponent},
     {path: "carga", component: CargaComponent},
     {path: "registros", component: RegistrosComponentAdmin},
-    {path: "registros/:id", component: RegistroComponentAdmin},
+    {path: "registros/:id", component: RegistroComponent},
   ]},
   {path: "ejecutivo", component: HomeComponent, children: [
     {path: "registros", component: RegistrosComponent},
-    {path: "registro", component: RegistroComponent}
+    {path: "registros/:id", component: RegistroComponent}
   ]},
   {path: "**", redirectTo:"login"}
 ];

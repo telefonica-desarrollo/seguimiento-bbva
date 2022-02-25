@@ -1,1 +1,29 @@
-<p>registros works!</p>
+<div class="row justify-content-end">
+    <div class="col-4 px-5">
+        <div class="form-group">
+            <input type="email" class="form-control" id="exampleFormControlInput1" name="usuario" (change)="busqueda(buscador.value)" #buscador placeholder="Busqueda por M...">
+        </div>
+    </div>
+</div>
+<div class="row mt-2">
+    <div class="col px-5">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">M </th>
+                    <th scope="col">Usuario</th>
+                    <th scope="col">DN</th>
+                    <th scope="col">Correo</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="trDesign" *ngFor="let registro of registros" (click)="verRegistro(registro)">
+                    <th scope="row">{{registro.M_IDENTIFICADOR}}</th>
+                    <td>{{registro.USUARIO}}</td>
+                    <td>{{registro.DN}}</td>
+                    <td>{{registro.CORREO}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

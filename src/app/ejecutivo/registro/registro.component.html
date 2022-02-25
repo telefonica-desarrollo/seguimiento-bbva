@@ -1,1 +1,104 @@
-<p>registro works!</p>
+<div class="row px-5 align-items-center">
+    <div class="col-auto p-3 rounded display-3 mt-3 bg-dark text-white shadow">
+        {{Registro.M_IDENTIFICADOR}}
+    </div>
+    <div class="col px-4">
+        <div class="row">
+            <div class="col-8">
+                <div class="form-group mt-3">
+                    <label for="exampleFormControlInput1">Usuario</label>
+                    <input type="text" class="form-control" id="exampleFormControlInput1" name="usuario" [(ngModel)]="Registro.USUARIO" disabled>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="form-group mt-3">
+                    <label for="exampleFormControlInput1">DN</label>
+                    <input type="text" class="form-control" id="exampleFormControlInput1" name="dn" [(ngModel)]="Registro.DN" disabled>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="form-group mt-3">
+                    <label for="exampleFormControlInput1">Correo</label>
+                    <input type="text" class="form-control" id="exampleFormControlInput1" name="coreo" [(ngModel)]="Registro.CORREO" disabled>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="form-group mt-3">
+                    <label for="exampleFormControlInput1">CAC</label>
+                    <input type="text" class="form-control" id="exampleFormControlInput1" name="cac" [(ngModel)]="Registro.CAC" disabled>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<hr>
+<!-- TEMINAL -->
+<div class="row px-5">
+    <h3 class="text-muted">Terminal</h3>
+    <div class="row">
+        <div class="col-2">
+            <div class="form-group">
+                <label for="exampleFormControlInput1">Marca</label>
+                <input type="text" class="form-control" id="exampleFormControlInput1" name="marca" [(ngModel)]="Registro.MARCA" disabled>
+            </div>
+        </div>
+        <div class="col-3">
+            <div class="form-group">
+                <label for="exampleFormControlInput1">Modelo</label>
+                <input type="text" class="form-control" id="exampleFormControlInput1" name="modelo" [(ngModel)]="Registro.MODELO" disabled>
+            </div>
+        </div>
+        <div class="col-3">
+            <div class="form-group">
+                <label for="exampleFormControlInput1">Fecha de activacion</label>
+                <input type="text" class="form-control" id="exampleFormControlInput1" name="fecha" [(ngModel)]="Registro.FECHA_ACTIVACION" disabled>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="form-group">
+                <label for="exampleFormControlInput1">IMEI</label>
+                <input type="text" class="form-control" id="exampleFormControlInput1" name="imei" [(ngModel)]="Registro.IMEI" disabled>
+            </div>
+        </div>
+    </div>
+</div>
+<hr>
+<!-- GUIA -->
+<div class="row px-5">
+    <div class="col-7">
+        <h3 class="text-muted">Guia</h3>
+        <div class="row">
+            <div class="col-8">
+                <div class="form-group">
+                    <label for="exampleFormControlInput1">Guia entrega</label>
+                    <input type="text" class="form-control" id="exampleFormControlInput1" name="guia" [(ngModel)]="Registro.GUIA_ENTREGA" disabled>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="form-group">
+                    <label for="exampleFormControlInput1">Status</label>
+                    <input type="text" class="form-control" id="exampleFormControlInput1" name="modelo" [(ngModel)]="Registro.STATUS_ENTREGA" disabled>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-5" style="border-left-style: solid; border-left-color: rgba(0, 0, 0, 0.2);" *ngIf="Registro.STATUS_ENTREGA == 'ENTREGADO' ">
+        <h3 class="text-muted">Contacto a usuario</h3>
+        <div class="row align-items-end">
+            <div class="col-6">
+                <div class="form-group">
+                    <label for="exampleFormControlInput1">Status</label>
+                    <input type="text" *ngIf="Registro.STATUS_CONTACTO_CLIENTE == 0" class="form-control" id="exampleFormControlInput1" name="modelo" value="Aún sin contactar" disabled>
+                    <input type="text" *ngIf="Registro.STATUS_CONTACTO_CLIENTE == 1" class="form-control" id="exampleFormControlInput1" name="modelo" value="Usuario contactado" disabled>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="form-group">
+                    <button class="btn btn-success w-100 py-2" (click)="Registro.STATUS_CONTACTO_CLIENTE = 1" *ngIf="Registro.STATUS_CONTACTO_CLIENTE == 0">Enviar mensaje</button>
+                    <button class="btn btn-success w-100 py-2" disabled *ngIf="Registro.STATUS_CONTACTO_CLIENTE == 1">Mensaje enviado</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<hr>

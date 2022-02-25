@@ -16,13 +16,14 @@ export class LoginComponent implements OnInit {
   }
 
   usuario: any = {
-    Usuario: "Ejecutivo",
-    Password: "123"
+    USUARIO: "",
+    PASSWORD: ""
   }
 
   Login(){
-    if(this.usuario.Usuario == "admin" && this.usuario.Password == "123"){
+    if(this.usuario.USUARIO == "Admin_General" && this.usuario.PASSWORD == "Movistar123"){
       this.router.navigate(["admin/dashboard"])
+      return
     }
     
     Swal.fire({
@@ -37,7 +38,7 @@ export class LoginComponent implements OnInit {
       if(res) {
         console.log(res);
         localStorage.clear()
-        localStorage.setItem("ID_TIENDA", res.ID_TIENDA)
+        localStorage.setItem("CAC", res.CAC)
 
         Swal.close();
         this.router.navigate(["ejecutivo/registros"])

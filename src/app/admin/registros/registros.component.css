@@ -1,0 +1,7 @@
+.trDesign {
+    cursor: pointer;
+}
+
+.trDesign:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}

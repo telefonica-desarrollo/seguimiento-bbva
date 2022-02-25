@@ -1,1 +1,39 @@
-<p>carga works!</p>
+<div class="row px-5">
+    <div class="col-12">
+        <h1 class="text-muted">Cargar registros</h1>
+    </div>
+    <div class="col-6 mt-5">
+        <input type="file" name="data" (change)="cargarData($event)">
+    </div>
+    <div class="col-6 mt-5">
+        <button class="btn btn-primary w-100 p-2" (click)="guardarInfo()" [disabled]="RegistrosExcel.length == 0 || guardando">Guardar en BD</button>
+    </div>
+    <div class="col-12 mt-3" *ngIf="RegistrosExcel.length == 0 && cargando">
+        Leyendo el documento...
+    </div>
+    <div class="col-12 mt-3" *ngIf="RegistrosExcel.length>0 && !cargando">
+        <p>Numero de lineas: {{RegistrosExcel.length}}</p>
+        <p>Lineas guardadas: {{RegistrosGuardados}} -> {{RegistrosExcel.length}}</p>
+        <div *ngIf="RegistrosCambiados>0">
+            <p>Registros cambiados: {{RegistrosCambiados}}</p>
+        </div>
+        <table class="table w-100 mt-4">
+            <thead>
+                <tr>
+                    <th scope="col">M </th>
+                    <th scope="col">Usuario</th>
+                    <th scope="col">DN</th>
+                    <th scope="col">Correo</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="trDesign" *ngFor="let registro of RegistrosExcel">
+                    <th scope="row">{{registro.M_IDENTIFICADOR}}</th>
+                    <td>{{registro.USUARIO}}</td>
+                    <td>{{registro.DN}}</td>
+                    <td>{{registro.CORREO}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
